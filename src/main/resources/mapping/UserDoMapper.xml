@@ -19,6 +19,12 @@
     from user_info
     where id = #{id,jdbcType=INTEGER}
   </select>
+  <select id="selectByTelPhone" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from user_info
+    where telphone = #{telphone,jdbcType=VARCHAR}
+  </select>
   <insert id="insert" parameterType="com.miaoshaproject.dataobject.UserDo">
     insert into user_info (id, name, gender, 
       age, telphone, register_mode, 
@@ -27,7 +33,7 @@
       #{age,jdbcType=INTEGER}, #{telphone,jdbcType=VARCHAR}, #{registerMode,jdbcType=VARCHAR}, 
       #{thirdPartyId,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.miaoshaproject.dataobject.UserDo">
+  <insert id="insertSelective" parameterType="com.miaoshaproject.dataobject.UserDo" keyProperty="id" useGeneratedKeys="true">
     insert into user_info
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">

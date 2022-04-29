@@ -12,4 +12,6 @@ public interface UserDoMapper {
     int updateByPrimaryKeySelective(UserDo row);
 
     int updateByPrimaryKey(UserDo row);
+
+    UserDo selectByTelPhone(String telphone);
 }

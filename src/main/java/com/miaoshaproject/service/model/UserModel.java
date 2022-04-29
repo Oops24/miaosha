@@ -13,7 +13,7 @@ public class UserModel {
 
     private Integer id;
     private String name;
-    private Byte gender;
+    private Integer gender;
     private Integer age;
     private String telphone;
     private String registerMode;
